@@ -1,0 +1,2 @@
+{% assign a = include.a %}{% assign ap = site.data.pillars | where: "slug", a.cat | first %}<a class="card art-card reveal" data-cat="{{ a.cat }}" href="{{ site.baseurl }}{{ a.url }}"><div class="cover c-{{ a.cat }}">{{ a.emoji }}</div>
+<div class="meta"><span class="tag">{{ ap.name }}</span><span>{{ a.mins }} min read</span></div><h3>{{ a.title | escape }}</h3><p>{{ a.description | escape }}</p></a>

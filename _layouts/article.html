@@ -1,0 +1,21 @@
+---
+layout: default
+---
+{% assign p = site.data.pillars | where: "slug", page.cat | first %}<div class="read-progress" style="position:fixed;top:0;left:0;height:3px;background:var(--grad);z-index:60;width:0"></div>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":{{ page.title | jsonify }},"description":{{ page.description | jsonify }},"datePublished":"{{ page.date | date: '%Y-%m-%d' }}","author":{"@type":"Organization","name":"Beautiful.Life Editorial Team"},"publisher":{"@type":"Organization","name":"Beautiful.Life","logo":{"@type":"ImageObject","url":"{{ site.url }}/assets/img/logo.svg"}},"mainEntityOfPage":"{{ site.url }}{{ page.url }}"}</script>
+<section style="padding-top:40px"><div class="wrap"><article class="article">
+<div class="crumbs"><a href="{{ site.baseurl }}/index.html">Home</a> › <a href="{{ site.baseurl }}/topics/{{ p.slug }}.html">{{ p.name }}</a> › Article</div>
+<span class="tag">{{ p.emoji }} {{ p.name }}</span>
+<h1 style="margin-top:12px">{{ page.title | escape }}</h1>
+<p class="lead">{{ page.description | escape }}</p>
+<div class="meta"><span>By Beautiful.Life Editorial Team</span><span>· {{ page.date | date: "%B %d, %Y" }}</span><span>· {{ page.mins }} min read</span></div>
+<div class="cover c-{{ page.cat }}">{{ page.emoji }}</div>
+{{ content }}
+<div class="share"><span class="meta" style="align-self:center">Share:</span><button class="btn sm ghost" data-share="x">X</button><button class="btn sm ghost" data-share="fb">Facebook</button><button class="btn sm ghost" data-share="li">LinkedIn</button><button class="btn sm ghost" data-share="wa">WhatsApp</button><button class="btn sm ghost" data-share="pin">Pinterest</button><button class="btn sm ghost" data-share="copy">Copy link</button></div>
+<div class="callout" style="background:var(--grad);color:#fff;border:0"><h3 style="color:#fff">Want personal guidance?</h3><p style="color:#fff">Get free introductions to vetted coaches and specialists who match your goals.</p><a class="btn" style="background:#fff;color:var(--brand)!important" href="{{ site.baseurl }}/get-matched.html">Get matched free &rarr;</a></div>
+<div class="author"><div class="av">BL</div><div><b>Beautiful.Life Editorial Team</b><br><span class="meta">We write research-informed, practical guides and review them for accuracy and clarity. <a href="{{ site.baseurl }}/about.html#editorial">Our editorial standards</a>.</span></div></div>
+</article></div></section>
+<section class="alt"><div class="wrap"><h2>Keep reading</h2><div class="grid g3">
+{% assign n = 0 %}{% assign same = site.articles | where: "cat", page.cat %}{% for r in same %}{% if r.url != page.url and n < 2 %}{% include art_card.html a=r %}{% assign n = n | plus: 1 %}{% endif %}{% endfor %}
+{% assign recent = site.articles | sort: "date" | reverse %}{% for r in recent %}{% if r.url != page.url and r.cat != page.cat and n < 3 %}{% include art_card.html a=r %}{% assign n = n | plus: 1 %}{% endif %}{% endfor %}
+</div></div></section>

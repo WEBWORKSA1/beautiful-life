@@ -1,0 +1,9 @@
+---
+layout: default
+---
+{% assign t = site.data.tools | where: "slug", page.slug | first %}<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"{{ t.name }}","applicationCategory":"LifestyleApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"{{ site.url }}{{ page.url }}"}</script>
+{% include phero.html eyebrow="Free tool" h1=t.name p=t.desc %}
+<section style="padding-top:10px"><div class="wrap">{{ content }}
+<div class="prose mt"><h2>About this tool</h2><p>{{ page.about }}</p><p class="meta">Privacy: nothing you enter here is sent to us. Data is stored only in your browser's local storage.</p></div>
+</div></section><section><div class="wrap">{% include leadbox.html %}</div></section>
+<section class="alt"><div class="wrap"><h2>More free tools</h2><div class="grid g4">{% assign n = 0 %}{% for o in site.data.tools %}{% if o.slug != page.slug and n < 4 %}{% include tool_card.html t=o %}{% assign n = n | plus: 1 %}{% endif %}{% endfor %}</div></div></section>

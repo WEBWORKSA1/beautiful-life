@@ -1,0 +1,25 @@
+# Beautiful.Life — Jekyll config (built automatically by GitHub Pages, free plan)
+title: Beautiful.Life
+description: Guides, free tools and experts for a calmer, healthier, richer and more meaningful life.
+url: "https://beautiful.life"
+# Project site path. When the custom domain beautiful.life is connected, change this to: baseurl: ""
+baseurl: "/beautiful-life"
+adsense: "ca-pub-6620975821265271"
+inquiry_url: "https://web.works/contact"
+markdown: kramdown
+timezone: UTC
+
+collections:
+  articles:
+    output: true
+    permalink: /articles/:name.html
+
+defaults:
+  - scope: { path: "", type: articles }
+    values: { layout: article, nav: blog }
+  - scope: { path: "topics" }
+    values: { layout: topic }
+  - scope: { path: "tools" }
+    values: { layout: tool }
+
+exclude: [build, scripts, automation, README.md, Gemfile, Gemfile.lock]

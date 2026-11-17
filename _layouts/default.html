@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% assign B = site.baseurl | append: "/" %}{% if page.title contains "Beautiful.Life" %}{% assign full = page.title %}{% else %}{% assign full = page.title | append: " | Beautiful.Life" %}{% endif %}{% assign canon = page.url | replace: "index.html", "" %}
+<html lang="en" data-base="{{ B }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ full | escape }}</title>
+<meta name="description" content="{{ page.description | escape }}">
+<link rel="canonical" href="{{ site.url }}{{ canon }}">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#6b3fa0">
+<meta property="og:type" content="{% if page.collection == 'articles' %}article{% else %}website{% endif %}"><meta property="og:site_name" content="Beautiful.Life">
+<meta property="og:title" content="{{ full | escape }}"><meta property="og:description" content="{{ page.description | escape }}"><meta property="og:url" content="{{ site.url }}{{ canon }}">
+<meta property="og:image" content="{{ site.url }}/assets/img/og.svg"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="{{ B }}assets/img/logo.svg" type="image/svg+xml">
+<link rel="manifest" href="{{ B }}manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ B }}assets/css/style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.adsense }}" crossorigin="anonymous"></script>
+<script>document.documentElement.classList.add("js");try{var t=localStorage.getItem("bl-theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebSite","name":"Beautiful.Life","url":"{{ site.url }}/"},{"@context":"https://schema.org","@type":"Organization","name":"Beautiful.Life","url":"{{ site.url }}/","logo":"{{ site.url }}/assets/img/logo.svg"}]</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="topbar"><a href="{{ site.inquiry_url }}" target="_blank" rel="noopener">Contact, if you are interested in this website/domain name/Sponsorship/Advertisement/Partnership</a></div>
+<header class="hdr"><div class="wrap">
+<a class="logo" href="{{ B }}index.html" aria-label="Beautiful.Life home"><img src="{{ B }}assets/img/logo.svg" width="34" height="34" alt=""><span>Beautiful<b>.Life</b></span></a>
+<button class="icon-btn burger" aria-label="Menu" aria-expanded="false">&#9776;</button>
+<nav class="nav" aria-label="Main">
+<div class="dd"><button>Explore &#9662;</button><div class="menu">{% for p in site.data.pillars %}<a href="{{ B }}topics/{{ p.slug }}.html">{{ p.emoji }} {{ p.name }}</a>{% endfor %}</div></div>
+<div class="dd"><button>Tools &#9662;</button><div class="menu">{% for t in site.data.tools %}<a href="{{ B }}tools/{{ t.slug }}.html">{{ t.emoji }} {{ t.name }}</a>{% endfor %}<a href="{{ B }}tools.html"><b>All tools &rarr;</b></a></div></div>
+<a href="{{ B }}blog.html"{% if page.nav == "blog" %} class="on"{% endif %}>Articles</a><a href="{{ B }}good-news.html"{% if page.nav == "news" %} class="on"{% endif %}>Good News</a><a href="{{ B }}videos.html"{% if page.nav == "videos" %} class="on"{% endif %}>Videos</a><a href="{{ B }}contests.html"{% if page.nav == "contests" %} class="on"{% endif %}>Contests</a><a href="{{ B }}support.html"{% if page.nav == "support" %} class="on"{% endif %}>Support</a>
+<button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode">&#9790;</button>
+<a class="btn sm" href="{{ B }}get-matched.html">Get Matched</a>
+</nav></div></header>
+<main id="main">
+{{ content }}
+</main>
+<footer class="ftr"><div class="wrap">
+<div class="cols">
+<div><a class="logo" href="{{ B }}index.html"><img src="{{ B }}assets/img/logo.svg" width="34" height="34" alt=""><span>Beautiful<b>.Life</b></span></a>
+<p style="margin-top:12px">Practical, research-informed guides and free tools for a calmer, healthier, richer and more meaningful life.</p>
+<form class="newsletter" data-form="newsletter" data-subject="Newsletter" data-ok="You're in! Watch your inbox for the next Sunday letter.">
+<label class="sr" for="nl-e">Email</label><input id="nl-e" type="email" name="email" placeholder="Your email" required><span class="hp"><input name="_hp" tabindex="-1" autocomplete="off"></span><button class="btn sm" type="submit">Join</button><div class="form-msg"></div></form></div>
+<div><h4>Explore</h4><ul>{% for p in site.data.pillars %}<li><a href="{{ B }}topics/{{ p.slug }}.html">{{ p.name }}</a></li>{% endfor %}</ul></div>
+<div><h4>Free tools</h4><ul>{% for t in site.data.tools %}<li><a href="{{ B }}tools/{{ t.slug }}.html">{{ t.name }}</a></li>{% endfor %}</ul></div>
+<div><h4>Get involved</h4><ul>
+<li><a href="{{ B }}get-matched.html">Get Matched with an Expert</a></li><li><a href="{{ B }}blueprint.html">Free 30-Day Blueprint</a></li>
+<li><a href="{{ B }}contests.html">Contests &amp; Prizes</a></li><li><a href="{{ B }}support.html">Support / Donate</a></li>
+<li><a href="{{ B }}partners.html">Advertise &amp; Partner</a></li><li><a href="{{ B }}careers.html">Careers &amp; Contributors</a></li>
+<li><a href="{{ B }}about.html">About</a></li><li><a href="{{ B }}contact.html">Contact</a></li></ul></div>
+</div>
+<div class="legal">
+<p><a href="{{ B }}privacy.html">Privacy Policy</a> · <a href="{{ B }}terms.html">Terms of Use</a> · <a href="{{ B }}disclaimer.html">Disclaimer &amp; Trademark Notice</a> · <a href="{{ B }}privacy.html#cookies">Cookies</a> · <a href="{{ B }}sitemap.xml">Sitemap</a></p>
+<p>&copy; <span data-year>{{ site.time | date: "%Y" }}</span> Beautiful.Life. All rights reserved. Original content on this site is protected by copyright. Beautiful.Life is an independent publication and is not affiliated with, endorsed by or connected to any company, product, app or trademark using similar names. Content is for general information only and is not medical, psychological, legal or financial advice.</p>
+<p>This site uses cookies and displays advertising served by Google AdSense. <a href="{{ B }}privacy.html#ads">Learn how Google uses data</a>.</p>
+</div></div></footer>
+<div class="cookie" role="dialog" aria-label="Cookie consent"><b>We value your privacy 🍪</b><p style="margin:6px 0 0">We use cookies for essential functions, analytics and to show personalised ads via Google AdSense. You can accept all or keep only essential cookies. See our <a href="{{ B }}privacy.html#cookies">Privacy Policy</a>.</p><div class="acts"><button class="btn sm" data-consent="all">Accept all</button><button class="btn sm ghost" data-consent="essential">Essential only</button></div></div>
+<div class="modal" role="dialog" aria-modal="true" aria-label="Free blueprint"><div class="box"><button class="x" aria-label="Close">&times;</button>
+<span class="eyebrow">Free download</span><h3 style="font-size:1.7rem">The 30-Day Beautiful Life Blueprint</h3><p>One small action a day across all eight life areas. Printable checklist + weekly reflection prompts.</p>
+<form class="form" data-form="blueprint" data-subject="Blueprint lead"><input name="name" placeholder="First name" required><input type="email" name="email" placeholder="Email address" required><span class="hp"><input name="_hp" tabindex="-1" autocomplete="off"></span><button class="btn" type="submit">Send me the Blueprint</button><div class="form-msg"></div><p class="meta">No spam. Unsubscribe any time.</p></form></div></div>
+<button class="icon-btn totop" aria-label="Back to top">&#8593;</button>
+<script src="{{ B }}config.js"></script>
+<script src="{{ B }}assets/js/main.js" defer></script>
+<script src="{{ B }}assets/js/tools.js" defer></script>
+</body></html>

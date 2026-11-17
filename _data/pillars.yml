@@ -1,0 +1,56 @@
+- slug: mind
+  name: Mind
+  emoji: "🧠"
+  tag: Calm, clarity and emotional strength
+  intro: "Your inner life sets the tone for everything else. Here you'll find research-backed practices for managing stress, building resilience and training attention — the quiet skills behind a beautiful life."
+  tool: breathing-coach
+  tips: ["Do one minute of slow breathing before checking your phone.", "Name your emotion precisely — it helps regulate it.", "Write three good things before bed.", "Schedule worry: 15 minutes, then park it."]
+- slug: body
+  name: Body
+  emoji: "🌿"
+  tag: Sleep, movement and nourishment
+  intro: "Energy is the currency of a good day. These guides focus on the fundamentals with the strongest evidence: sleep, daily movement, simple nutrition and recovery."
+  tool: sleep-calculator
+  tips: ["Keep a consistent wake time, even on weekends.", "Walk after meals for 10 minutes.", "Fill half your plate with vegetables.", "Stand up and move every hour."]
+- slug: money
+  name: Money
+  emoji: "💰"
+  tag: Calm finances and freedom
+  intro: "Money can't buy happiness, but financial stress reliably takes it away. Learn to build a buffer, spend on what matters and design a path to more freedom and choice."
+  tool: freedom-calculator
+  tips: ["Automate saving on payday.", "Track spending for 30 days without judgment.", "Build a starter emergency buffer first.", "Spend on experiences and time, not clutter."]
+- slug: love
+  name: Love
+  emoji: "💞"
+  tag: Friendship, family and connection
+  intro: "Decades of research point to one conclusion: the quality of our relationships predicts the quality of our lives. Practical guides to deeper friendships, better conversations and lasting love."
+  tool: gratitude-journal
+  tips: ["Book recurring time with friends.", "Ask one deeper question per conversation.", "Express appreciation out loud, daily.", "Repair quickly after conflict."]
+- slug: home
+  name: Home
+  emoji: "🏡"
+  tag: Spaces that restore you
+  intro: "Your surroundings shape your mood more than you think. Ideas for calmer, lighter, more intentional homes — at any budget."
+  tool: habit-tracker
+  tips: ["Clear one surface completely.", "Use warm, low lighting in the evening.", "Add one easy-care plant.", "Do a 10-minute evening reset."]
+- slug: purpose
+  name: Purpose
+  emoji: "🌅"
+  tag: Meaning, values and direction
+  intro: "A beautiful life has a 'why'. Tools and reflections to clarify your values, find meaningful work and live with direction."
+  tool: life-in-weeks
+  tips: ["Write down your top five values.", "Notice what gives you energy this week.", "Run one small experiment toward a dream.", "Help someone with a skill you have."]
+- slug: adventure
+  name: Adventure
+  emoji: "🧭"
+  tag: Travel, novelty and awe
+  intro: "Novelty and awe are fuel for a full life. From weekend micro-adventures to bucket-list travel, we help you collect experiences, not clutter."
+  tool: life-in-weeks
+  tips: ["Try one new thing every month.", "Plan a micro-adventure this weekend.", "Watch a sunrise or sunset intentionally.", "Explore your city like a tourist."]
+- slug: growth
+  name: Growth
+  emoji: "📚"
+  tag: Habits, learning and self-mastery
+  intro: "Small habits compound into big lives. Systems for learning, focus and personal growth that fit real schedules."
+  tool: wheel-of-life
+  tips: ["Make new habits tiny — two minutes.", "Read ten pages a day.", "Review your week every Sunday.", "Learn in public: share what you learn."]

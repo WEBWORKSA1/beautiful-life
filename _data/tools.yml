@@ -1,0 +1,8 @@
+- { slug: wheel-of-life, name: "Wheel of Life", emoji: "🎡", desc: "Score 8 life areas and see your balance on an interactive chart." }
+- { slug: happiness-check, name: "Life Satisfaction Check", emoji: "😊", desc: "An 8-statement self-check with a personalised next step." }
+- { slug: habit-tracker, name: "Habit Tracker", emoji: "✅", desc: "Track daily habits and streaks. Private, no sign-up." }
+- { slug: gratitude-journal, name: "Gratitude Journal", emoji: "📓", desc: "Three good things a day, with rotating prompts and export." }
+- { slug: sleep-calculator, name: "Sleep Cycle Calculator", emoji: "🌙", desc: "Find bed and wake times that line up with sleep cycles." }
+- { slug: life-in-weeks, name: "Your Life in Weeks", emoji: "⏳", desc: "See every week of your life on one grid. A powerful perspective." }
+- { slug: freedom-calculator, name: "Financial Freedom Calculator", emoji: "📈", desc: "Find your freedom number and how long it will take." }
+- { slug: breathing-coach, name: "Breathing Coach", emoji: "🌬️", desc: "Animated box, 4-7-8 and coherent breathing guide." }
