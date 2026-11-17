@@ -210,14 +210,35 @@
 
   /* ---------- Good-news feed (auto-updated JSON) ---------- */
   function esc(s){ return String(s || "").replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+  var LIVE = [["Good News Network","https://www.goodnewsnetwork.org/feed/"],["Positive News","https://www.positive.news/feed/"],["Reasons to be Cheerful","https://reasonstobecheerful.world/feed/"]];
+  var SKIP = /horoscope|good news in history|astrology|shooting|killed|murder|war\b/i;
+  var CATS = [["health",/health|medic|patient|doctor|cancer|disease|hospital|treatment|sleep|mental|brain/i],["planet",/climate|wildlife|species|ocean|forest|river|energy|solar|green|nature|bird|whale|bear|animal|plant|reef/i],["science",/scien|research|discover|space|mars|astronom|study|tech|robot/i],["kindness",/kind|donat|rescue|volunteer|neighbo|stranger|hero|gift|charity|help/i]];
+  function cat(t){ for(var i=0;i<CATS.length;i++) if(CATS[i][1].test(t)) return CATS[i][0]; return "world"; }
+  function strip(h){ var d = document.createElement("div"); d.innerHTML = h || ""; var s = (d.textContent || "").replace(/\s+/g," ").replace(/The post .* appeared first on .*$/,"").trim(); return s.length > 220 ? s.slice(0,217) + "…" : s; }
+  function liveNews(){ // self-updating: pulls the latest stories in the visitor's browser (cached 1h)
+    try{ var c = JSON.parse(sessionStorage.getItem("bl-live") || "null"); if(c && Date.now() - c.t < 36e5) return Promise.resolve(c.items); }catch(e){}
+    return Promise.all(LIVE.map(function(f){
+      return fetch("https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(f[1])).then(function(r){ return r.json(); }).then(function(j){
+        return (j.items || []).filter(function(it){ return it.title && !SKIP.test(it.title); }).map(function(it){ var s = strip(it.description); return {title:it.title, link:it.link, summary:s, source:f[0], date:(it.pubDate||"").replace(" ","T")+"Z", cat:cat(it.title+" "+s)}; });
+      }).catch(function(){ return []; });
+    })).then(function(all){ var items = [].concat.apply([], all); try{ sessionStorage.setItem("bl-live", JSON.stringify({t:Date.now(), items:items})); }catch(e){} return items; });
+  }
   document.querySelectorAll("[data-news]").forEach(function(box){
     var limit = +box.getAttribute("data-news") || 9;
-    fetch(BASE + "data/news.json", {cache:"no-cache"}).then(function(r){ return r.json(); }).then(function(j){
-      var items = (j.items || []).slice(0, limit);
-      var up = document.querySelector("[data-news-updated]"); if(up && j.updated) up.textContent = new Date(j.updated).toLocaleString();
-      box.innerHTML = items.map(function(it){
-        return '<article class="card hov news-item reveal in" data-cat="'+esc(it.cat||"world")+'"><span class="src">'+esc(it.source)+'</span><h3><a href="'+esc(it.link)+'" target="_blank" rel="noopener nofollow">'+esc(it.title)+'</a></h3><p>'+esc(it.summary)+'</p><span class="meta">'+esc(it.date ? new Date(it.date).toLocaleDateString() : "")+'</span></article>';
+    function render(items, updated){
+      var up = document.querySelector("[data-news-updated]"); if(up && updated) up.textContent = new Date(updated).toLocaleString();
+      box.innerHTML = items.slice(0, limit).map(function(it){
+        return '<article class="card hov news-item reveal in" data-cat="'+esc(it.cat||"world")+'"><span class="src">'+esc(it.source)+'</span><h3><a href="'+esc(it.link)+'" target="_blank" rel="noopener nofollow">'+esc(it.title)+'</a></h3><p>'+esc(it.summary)+'</p><span class="meta">'+esc(it.date && !isNaN(new Date(it.date)) ? new Date(it.date).toLocaleDateString() : "")+'</span></article>';
       }).join("") || "<p>Fresh stories are on their way.</p>";
+    }
+    fetch(BASE + "data/news.json", {cache:"no-cache"}).then(function(r){ return r.json(); }).then(function(j){
+      var base = j.items || []; render(base, j.updated);
+      liveNews().then(function(live){
+        if(!live.length) return;
+        var seen = {}, merged = live.concat(base).filter(function(x){ if(seen[x.link]) return false; seen[x.link] = 1; return true; });
+        merged.sort(function(a,b){ return new Date(b.date) - new Date(a.date); });
+        render(merged, Date.now());
+      });
     }).catch(function(){ box.innerHTML = "<p>Fresh stories are on their way.</p>"; });
   });
 
