@@ -1,0 +1,57 @@
+---
+layout: default
+title: "Beautiful.Life — Guides, Tools & Experts for a Beautiful Life"
+description: "Free research-informed guides and interactive tools for wellbeing, sleep, money, relationships and purpose — plus expert matching to help you design a beautiful life."
+nav: home
+---
+{% assign B = site.baseurl | append: "/" %}{% assign latest = site.articles | sort: "date" | reverse %}
+<section class="hero"><div class="wrap">
+<div><span class="eyebrow">Live well · Love well · Do well</span>
+<h1>Design a life that feels <em>beautiful</em> — from the inside out.</h1>
+<p class="lead">Research-informed guides, free interactive tools and real-world experts to help you sleep better, stress less, grow your money and spend more time on what matters.</p>
+<div class="cta-row"><a class="btn" href="{{ B }}tools/wheel-of-life.html">Take the free Life Check &rarr;</a><a class="btn ghost" href="#" data-open-modal>Get the 30-Day Blueprint</a></div>
+<div class="stats"><div><b data-count="8">8</b>life areas</div><div><b data-count="{{ site.data.tools.size }}">{{ site.data.tools.size }}</b>free tools</div><div><b data-count="{{ site.articles.size }}">{{ site.articles.size }}</b>in-depth guides</div><div><b>Daily</b>good-news updates</div></div></div>
+<div class="quote-card reveal" data-quote><span class="chip">✨ Quote of the day · <span data-today></span></span><p class="q">“Very little is needed to make a happy life.”</p><p class="a">— Marcus Aurelius</p>
+<div class="today"><span class="chip">🎯 Today's beautiful action</span><p style="margin:10px 0 0;font-weight:600" data-action>Take a 10-minute walk outside without your phone.</p></div></div>
+</div></section>
+
+<section><div class="wrap">
+<div class="sec-head"><div><span class="eyebrow">The 8 pillars</span><h2>Every part of a beautiful life</h2></div><p>Balance comes from tending all eight areas. Start where you need it most.</p></div>
+<div class="grid g4">{% for p in site.data.pillars %}<a class="card reveal" href="{{ B }}topics/{{ p.slug }}.html"><div class="pill-ico c-{{ p.slug }}">{{ p.emoji }}</div><h3>{{ p.name }}</h3><p>{{ p.tag }}</p></a>{% endfor %}</div>
+</div></section>
+
+<section class="alt"><div class="wrap">
+<div class="sec-head"><div><span class="eyebrow">Free interactive tools</span><h2>Measure it. Improve it. Enjoy it.</h2></div><a class="btn ghost sm" href="{{ B }}tools.html">All tools &rarr;</a></div>
+<div class="grid g4">{% for t in site.data.tools %}{% include tool_card.html t=t %}{% endfor %}</div>
+</div></section>
+
+<section><div class="wrap">{% include leadbox.html %}</div></section>
+
+<section><div class="wrap">
+<div class="sec-head"><div><span class="eyebrow">Latest guides</span><h2>Read something that helps today</h2></div><a class="btn ghost sm" href="{{ B }}blog.html">All articles &rarr;</a></div>
+<div class="grid g3">{% for a in latest limit: 6 %}{% include art_card.html a=a %}{% endfor %}</div>
+</div></section>
+
+<section class="alt"><div class="wrap">
+<div class="sec-head"><div><span class="eyebrow">Updated automatically every day</span><h2>Today's good news</h2></div><a class="btn ghost sm" href="{{ B }}good-news.html">More good news &rarr;</a></div>
+<div class="grid g3" data-news="6"><p>Loading uplifting stories…</p></div>
+</div></section>
+
+<section><div class="wrap">
+<div class="sec-head"><div><span class="eyebrow">Watch &amp; be inspired</span><h2>Ideas worth watching</h2></div><a class="btn ghost sm" href="{{ B }}videos.html">Video library &rarr;</a></div>
+<div class="grid g3" data-videos="3"></div>
+</div></section>
+
+<section class="alt"><div class="wrap grid g3">
+<div class="card reveal"><div class="pill-ico">🏆</div><h3>Beautiful Moments Contest</h3><p>Share a photo or story of a beautiful moment. Monthly winners receive prizes and are featured on the site.</p><a class="more" href="{{ B }}contests.html">Enter this month &rarr;</a></div>
+<div class="card reveal"><div class="pill-ico">💛</div><h3>Support our mission</h3><p>Reader support keeps our tools free and ad load light. Every contribution funds new guides, tools and community prizes.</p><a class="more" href="{{ B }}support.html">Become a supporter &rarr;</a></div>
+<div class="card reveal"><div class="pill-ico">🤝</div><h3>Partner with us</h3><p>Coaches, wellness brands, retreats and financial firms: reach a values-driven audience with sponsorships and listings.</p><a class="more" href="{{ B }}partners.html">Advertise &amp; partner &rarr;</a></div>
+</div></section>
+
+<section><div class="wrap faq prose">
+<div class="center"><span class="eyebrow">FAQ</span><h2>Questions, answered</h2></div>
+<details><summary>Is Beautiful.Life free?</summary><p>Yes. All articles and tools are free. The site is supported by advertising, partners and optional reader contributions.</p></details>
+<details><summary>Do your tools store my data?</summary><p>No. The Wheel of Life, habit tracker, gratitude journal and other tools save information only in your own browser. We never see it.</p></details>
+<details><summary>How does "Get Matched" work?</summary><p>You tell us your goal, budget and location. We review your request and introduce you to suitable professionals from our partner network. It's free and you're never obliged to hire anyone.</p></details>
+<details><summary>Is this medical or financial advice?</summary><p>No. Our content is general information. Always consult a qualified professional about your specific circumstances.</p></details>
+</div></section>

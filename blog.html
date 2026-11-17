@@ -1,0 +1,11 @@
+---
+layout: default
+title: "Articles & Guides"
+description: "Browse Beautiful.Life's library of guides on mind, body, money, love, home, purpose, adventure and growth."
+nav: blog
+---
+{% include phero.html eyebrow="The library" h1="Articles &amp; guides" p="Practical, research-informed reading on every part of a beautiful life." %}
+<section style="padding-top:20px"><div class="wrap"><div class="search"><label class="sr" for="q">Search articles</label><input id="q" type="search" placeholder="Search guides… e.g. sleep, money, friends" data-search="#arts"></div>
+<div class="filters" data-filter-group="#arts"><button class="on" data-f="all">All</button>{% for p in site.data.pillars %}<button data-f="{{ p.slug }}">{{ p.emoji }} {{ p.name }}</button>{% endfor %}</div>
+<div class="grid g3" id="arts">{% assign all = site.articles | sort: "date" | reverse %}{% for a in all %}{% include art_card.html a=a %}{% endfor %}</div></div></section>
+<script>(function(){var q=new URLSearchParams(location.search).get("q");if(q){var i=document.getElementById("q");i.value=q;setTimeout(function(){i.dispatchEvent(new Event("input"))},50);}})();</script>
