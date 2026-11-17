@@ -1,0 +1,31 @@
+---
+layout: default
+title: "Contests & Prizes — Beautiful Moments"
+description: "Enter Beautiful.Life's monthly photo, story and micro-adventure contests for featured placement and prizes."
+nav: contests
+---
+<section class="phero"><div class="wrap"><span class="eyebrow">Monthly contests · real prizes</span><h1>Contests &amp; prizes</h1><p>Share what makes your life beautiful. Every month we feature the best entries and award prizes funded by our supporters and sponsors.</p></div></section>
+<section style="padding-top:10px"><div class="wrap">
+<div class="grid g3">
+<div class="card reveal"><div class="pill-ico">📸</div><h3>Beautiful Moments Photo</h3><p>A photo of a moment that made you stop and smile. Judged on emotion, originality and story.</p><p class="mt"><span class="chip">🥇 Featured + gift card</span></p></div>
+<div class="card reveal"><div class="pill-ico">✍️</div><h3>Life-Changing Habit Story</h3><p>In 300 words or fewer, tell us about one habit that changed your life.</p><p class="mt"><span class="chip">🥇 Featured + coaching session</span></p></div>
+<div class="card reveal"><div class="pill-ico">🧭</div><h3>Micro-Adventure Challenge</h3><p>Complete a micro-adventure and share what you did and what you discovered.</p><p class="mt"><span class="chip">🥇 Featured + adventure kit</span></p></div>
+</div>
+<div class="grid g2 mt" style="align-items:start">
+<form class="tool form" data-form="contest" data-subject="Contest entry" data-ok="Your entry is in! Winners are announced in the first week of next month.">
+<h3>Enter the {{ site.time | date: "%B %Y" }} contest</h3>
+<div><label for="c-cat">Category</label><select id="c-cat" name="category" required><option value="">Choose…</option><option>Beautiful Moments Photo</option><option>Life-Changing Habit Story</option><option>Micro-Adventure Challenge</option></select></div>
+<div class="row"><div><label for="c-n">Name</label><input id="c-n" name="name" required></div><div><label for="c-e">Email</label><input id="c-e" type="email" name="email" required></div></div>
+<div><label for="c-t">Title of your entry</label><input id="c-t" name="title" required></div>
+<div><label for="c-s">Your story (max 300 words)</label><textarea id="c-s" name="story" required maxlength="2200"></textarea></div>
+<div><label for="c-l">Link to your photo (Google Drive, Dropbox, Instagram…)</label><input id="c-l" type="url" name="photo_link" placeholder="https://"></div>
+<div><label for="c-c">Country</label><input id="c-c" name="country" required></div>
+<label class="check"><input type="checkbox" name="rules" value="accepted" required> I'm 18+ (or have parental consent), this is my original work, and I accept the contest rules below.</label><span class="hp"><input name="_hp" tabindex="-1" autocomplete="off"></span>
+<button class="btn" type="submit">Submit my entry</button><div class="form-msg"></div></form>
+<div class="faq"><h3>Contest rules (summary)</h3>
+<details open><summary>Who can enter?</summary><p>Anyone aged 18+ where such contests are legal. Under-18s need parental consent. No purchase necessary.</p></details>
+<details><summary>How are winners chosen?</summary><p>An editorial panel scores entries on originality, emotional impact and alignment with the theme. Winners are notified by email and announced in the first week of the following month.</p></details>
+<details><summary>What about rights?</summary><p>You keep copyright. By entering, you grant Beautiful.Life a non-exclusive licence to feature your entry on the site and our channels with credit.</p></details>
+<details><summary>Prizes</summary><p>Prizes vary by month and sponsor and are listed when each contest opens. No cash alternative unless stated. Void where prohibited.</p></details>
+<details><summary>Sponsor a contest</summary><p>Brands can sponsor prizes for exposure to an engaged audience. <a href="partners.html#form">Become a prize sponsor</a>.</p></details></div>
+</div></div></section>
